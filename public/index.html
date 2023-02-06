@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Professional Shoe Repair Service</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Professional Shoe Repair Service</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#form">Request Appointment</a></li>
+        <li><a href="/admin">Admin</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="services">
+        <h2>Services</h2>
+        <ul>
+          <li>
+            <h3>Shoe Repair</h3>
+            <p>Our bread and butter is shoe repair. Our repair work includes: full and half sole replacements, heel replacements, toe tip build up, zipper replacements, gluing, stitching and much more.</p>
+          </li>
+          <li>
+            <h3>Cleaning & Maintenance</h3>
+            <p>We also specialize in cleaning all types of footwear. We provide the best shoe care services such as deep cleaning, polishing, re-dyeing and more..</p>
+          </li>
+          <li>
+            <h3>Handbags, Leather, & Miscellaneous</h3>
+            <p>Our expertise is not limited to footwear repairs. We can repair most leather goods including leather bags, purses, belts, and leather jackets. If it's leather, we can help!.</p>
+          </li>
+        </ul>
+      </section>
+      <section id="form">
+        <h2>Request Appointment</h2>
+        <form action="/servicerequest" method="post">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date">
+          </div>
+          <div class="form-group">
+            <label for="time">Time</label>
+            <input type="time" name="time" id="time" min="08:00" max="17:00" required>
+          </div>
+          <div class="form-group">
+            <label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="">Select Service</option>
+              <option value="Grooming">Grooming</option>
+              <option value="Bathing">Bathing</option>
+              <option value="Nail Trimming">Nail Trimming</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes"></textarea>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; Professional Shoe Repair Service 2023</p>
+    </footer>
+  </body>
+  <script>
+    const datePicker = document.querySelector('#date');
+    datePicker.min = new Date().toISOString().split("T")[0];
+    datePicker.addEventListener('change', function() {
+      if (new Date(datePicker.value) < new Date()) {
+        alert('Please select a date that is equal to or after today.');
+        datePicker.value = '';
+      }
+    });
+  </script>
+</html>
